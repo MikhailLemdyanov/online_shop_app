@@ -5,4 +5,3 @@ def test_category_init(category_phone, product_iphone, product_huawei):
 
     assert category_phone.category_count == 1
     assert category_phone.product_count == 2
-

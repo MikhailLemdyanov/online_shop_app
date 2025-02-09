@@ -1,7 +1,8 @@
 import pytest
 
-from src.product import Product
 from src.category import Category
+from src.product import Product
+
 
 @pytest.fixture
 def product_iphone():
@@ -16,4 +17,3 @@ def product_huawei():
 @pytest.fixture
 def category_phone(product_huawei, product_iphone):
     return Category("Смартфоны", "Умные телефоны", [product_iphone, product_huawei])
-
