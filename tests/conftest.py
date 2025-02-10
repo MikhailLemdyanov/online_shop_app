@@ -18,6 +18,7 @@ def product_huawei():
 def category_phone(product_huawei, product_iphone):
     return Category("Смартфоны", "Умные телефоны", [product_iphone, product_huawei])
 
+
 @pytest.fixture
 def new_product_valid_1():
     return {
@@ -26,9 +27,13 @@ def new_product_valid_1():
         "price": 180000.0,
         "quantity": 5,
     }
+
+
 @pytest.fixture
 def new_product_valid_2():
     return {"name": "iPhone 15", "description": "256GB, Серый цвет", "price": 210000, "quantity": 3}
+
+
 @pytest.fixture
 def new_product_valid_3():
     return {

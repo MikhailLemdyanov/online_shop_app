@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -16,18 +17,18 @@ class Category:
 
     @property
     def products_in_list(self):
-        '''Геттер, возвращающий приватный атрибут'''
+        """Геттер, возвращающий приватный атрибут"""
         return self.__products
 
     def add_product(self, product: Product):
-        '''Метод, увеличивающий счетчик продуктов'''
+        """Метод, увеличивающий счетчик продуктов"""
         self.__products.append(product)
         Category.product_count += 1
 
     @property
     def products(self):
-        '''Геттер, который выводит список товаров в виде строк'''
-        prod_str = ''
+        """Геттер, который выводит список товаров в виде строк"""
+        prod_str = ""
         for product in self.__products:
             prod_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return prod_str

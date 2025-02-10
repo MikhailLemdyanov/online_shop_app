@@ -20,6 +20,7 @@ def test_product_2_init(product_huawei):
 def test_price_property(product_iphone):
     assert product_iphone.price == 200000
 
+
 def test_new_product(new_product_valid_1, new_product_valid_2, new_product_valid_3):
     products = []
     new_product = Product.new_product(new_product_valid_1, products)
@@ -35,15 +36,18 @@ def test_new_product(new_product_valid_1, new_product_valid_2, new_product_valid
     assert len(products) == 2
     assert new_product.quantity == 8
 
+
 def test_price_update(product_iphone):
     with patch("builtins.input", side_effect=["y"]):
         product_iphone.price = 190000
         assert product_iphone.price == 190000
 
+
 def test_price_update_invalid(product_iphone):
     with patch("builtins.print") as mocked_print:
         product_iphone.price = 0
         mocked_print.assert_called_with("Цена не должна быть нулевой или отрицательной")
+
 
 def test_price_update_no_ans(product_iphone):
     with patch("builtins.input", side_effect=["n"]):

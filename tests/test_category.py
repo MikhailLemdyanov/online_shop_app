@@ -1,5 +1,6 @@
 from src.category import Category
 
+
 def test_category_init(category_phone, product_iphone, product_huawei):
     assert category_phone.name == "Смартфоны"
     assert category_phone.description == "Умные телефоны"
@@ -14,6 +15,8 @@ def test_categories_str_property(product_iphone, product_huawei):
     assert category.products == (
         "iPhone 15 Pro Max, 200000 руб. Остаток: 20 шт.\n" "Huawei 7S, 30000 руб. Остаток: 14 шт.\n"
     )
+
+
 def test_add_product(product_iphone, product_huawei):
     Category.product_count = 0
     Category.category_count = 0
