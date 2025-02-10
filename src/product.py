@@ -1,7 +1,7 @@
 class Product:
     name: str
     description: str
-    price: float
+    __price: float
     quantity: int
 
     def __init__(
@@ -9,5 +9,42 @@ class Product:
     ) -> None:
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @property
+    def price(self):
+        '''Геттер, возвращающий приватный аттрибут'''
+        return self.__price
+
+    @price.setter
+    def price(self, new_price):
+        '''Сеттер, изменяющий цену при необходимости'''
+        if new_price <= 0:
+            print('Цена не должна быть нулевой или отрицательной')
+            return
+        if new_price < self.__price:
+            question = input(
+                'Подтверждаете ли вы понижение стоимости? Если ДА введите "y", в противном случае введите "n".'
+            )
+            if question.lower() != 'y':
+                print('Вы отказались от изменения цены. Она останется прежней.')
+            else:
+                self.__price = new_price
+
+    @classmethod
+    def new_product(cls, prod_dict, products):
+        '''Класс-метод, принимающий параметры товара в списке и возвращающий созданный объект класса Product.'''
+        name = prod_dict.get('name')
+        description = prod_dict.get('description')
+        price = prod_dict.get('price')
+        quantity = prod_dict.get('quantity')
+
+        for product in products:
+            if product.name == name:
+                product.price = max(price, product.price)
+                product.quantity += quantity
+                return product
+        new_prod = cls(name, description, price, quantity)
+        products.append(new_prod)
+        return new_prod
