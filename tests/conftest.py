@@ -44,6 +44,7 @@ def new_product_valid_3():
         "quantity": 3,
     }
 
+
 @pytest.fixture
 def product_iterator(category_phone):
     return ProductIterator(category_phone)

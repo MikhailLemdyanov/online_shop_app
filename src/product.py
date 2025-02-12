@@ -11,8 +11,8 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        """Вывод строкового отображения в заданном формате """
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+        """Вывод строкового отображения в заданном формате"""
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
         """Складывает стоимость товаров на складе определенной категории"""
