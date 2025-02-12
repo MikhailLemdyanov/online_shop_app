@@ -15,6 +15,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self):
+        full_count = 0
+        for product in self.__products:
+            full_count += product.quantity
+        return f"{self.name}, количество продуктов: {full_count} шт."
+
     @property
     def products_in_list(self):
         """Геттер, возвращающий приватный атрибут"""
