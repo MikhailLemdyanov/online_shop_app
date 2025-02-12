@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iterator import ProductIterator
 
 
 @pytest.fixture
@@ -42,3 +43,7 @@ def new_product_valid_3():
         "price": 180000.0,
         "quantity": 3,
     }
+
+@pytest.fixture
+def product_iterator(category_phone):
+    return ProductIterator(category_phone)
