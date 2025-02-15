@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 
 
@@ -28,3 +30,18 @@ def test_add_product(product_iphone, product_huawei):
     assert category.category_count == 1
     assert product_huawei in category.products_in_list
     assert product_iphone in category.products_in_list
+
+
+def test_category_str(category_phone):
+    assert str(category_phone) == ("Смартфоны, количество продуктов: 34 шт.")
+
+
+def test_category_iterator(product_iterator):
+    iter(product_iterator)
+    assert product_iterator.index == 0
+    assert next(product_iterator).name == "iPhone 15 Pro Max"
+    assert product_iterator.index == 1
+    assert next(product_iterator).name == "Huawei 7S"
+
+    with pytest.raises(StopIteration):
+        next(product_iterator)
