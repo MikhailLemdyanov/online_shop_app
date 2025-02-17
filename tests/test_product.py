@@ -1,8 +1,8 @@
 from unittest.mock import patch
 
-from src.product import Product
-
 import pytest
+
+from src.product import Product
 
 
 def test_product_1_init(product_iphone):
@@ -82,4 +82,3 @@ def test_products_add_invalid_else(smartphone_2, lawngrass_2):
 def test_products_add_invalid_else_2(smartphone):
     with pytest.raises(TypeError):
         result = smartphone + 3
-
