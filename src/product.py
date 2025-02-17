@@ -16,7 +16,10 @@ class Product:
 
     def __add__(self, other):
         """Складывает стоимость товаров на складе определенной категории"""
-        return (self.quantity * self.__price) + (other.quantity * other.__price)
+        if type(self) is type(other):
+            return (self.quantity * self.__price) + (other.quantity * other.__price)
+        else:
+            raise TypeError
 
     @property
     def price(self):
