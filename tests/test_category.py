@@ -1,4 +1,5 @@
 import pytest
+from unicodedata import category
 
 from src.category import Category
 
@@ -45,3 +46,8 @@ def test_category_iterator(product_iterator):
 
     with pytest.raises(StopIteration):
         next(product_iterator)
+
+def test_add_product_err(product_iphone):
+    category = Category("Смартфоны", "Современные смартфоны", [product_iphone])
+    with pytest.raises(TypeError):
+        category.add_product('Продукт другой категории')
