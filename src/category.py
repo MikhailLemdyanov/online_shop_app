@@ -26,10 +26,13 @@ class Category:
         """Геттер, возвращающий приватный атрибут"""
         return self.__products
 
-    def add_product(self, product: Product):
-        """Метод, увеличивающий счетчик продуктов"""
-        self.__products.append(product)
-        Category.product_count += 1
+    def add_product(self, product):
+        """Метод, добавляющий продукт в список и увеличивающий счетчик продуктов"""
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):
