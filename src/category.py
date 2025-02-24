@@ -42,7 +42,7 @@ class Category:
             prod_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return prod_str
 
-    def avg_price(self):
+    def middle_price(self):
         try:
             return [sum([product.price for product in self.__products])/len(self.__products)]
         except ZeroDivisionError:
