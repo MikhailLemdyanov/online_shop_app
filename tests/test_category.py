@@ -58,12 +58,15 @@ def test_middle_price(category_zero_products):
     assert len(category_zero_products.products) == 0
     assert category_zero_products.middle_price() == 0
 
+
 def test_middle_price_valid(category_phone):
     assert category_phone.middle_price() == 115000
 
+
 def test_product_zero_quantity_raises_exception():
-    with pytest.raises(ValueError, match='Товар с нулевым количеством не может быть добавлен'):
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
         Product("iPhone 13 Pro", "512Gb", 200000, 0)
+
 
 def test_add_product_with_zero_quantity(capsys, category_phone):
     try:
@@ -73,5 +76,4 @@ def test_add_product_with_zero_quantity(capsys, category_phone):
         print(str(e))
 
     message = capsys.readouterr()
-    assert 'Товар с нулевым количеством не может быть добавлен' in message.out
-
+    assert "Товар с нулевым количеством не может быть добавлен" in message.out

@@ -76,4 +76,4 @@ def lawngrass_2():
 
 @pytest.fixture
 def category_zero_products(product_huawei, product_iphone):
-    return Category('Смартфоны', 'Умные телефоны', [])
+    return Category("Смартфоны", "Умные телефоны", [])

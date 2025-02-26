@@ -87,4 +87,4 @@ def test_products_add_invalid_else_2(smartphone):
 def test_zero_quantity_product():
     with pytest.raises(ValueError) as exc_info:
         Product("Huawei 8S", "32Gb", 15000, 0)
-        assert str(exc_info.value) == 'Товар с нулевым количеством не может быть добавлен'
+        assert str(exc_info.value) == "Товар с нулевым количеством не может быть добавлен"
