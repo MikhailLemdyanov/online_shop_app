@@ -1,5 +1,5 @@
 from src.product import Product
-from src.exceptions import ZeroQuantityProduct
+from src.exceptions import ZeroQuantityError
 
 
 class Category:
@@ -32,8 +32,8 @@ class Category:
         if isinstance(product, Product):
             try:
                 if product.quantity == 0:
-                    raise ZeroQuantityProduct('Нельзя добавить товар с нулевым количеством')
-            except ZeroQuantityProduct as e:
+                    raise ZeroQuantityError('Нельзя добавить товар с нулевым количеством')
+            except ZeroQuantityError as e:
                 print(str(e))
             else:
                 self.__products.append(product)
